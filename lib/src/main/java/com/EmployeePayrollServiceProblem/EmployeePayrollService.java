@@ -12,6 +12,9 @@ public class EmployeePayrollService {
 	public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) {
 		this.employeePayrollList = employeePayrollList;
 	}
+	
+	public EmployeePayrollService() {
+	}
 
 	private void readEmployeePayrollData(Scanner consoleInputReader) {
 		System.out.println("Enter Employee ID: ");
@@ -35,6 +38,19 @@ public class EmployeePayrollService {
 		if (fileIo.equals(IOService.FILE_IO)) {
 			new EmployeePayrollFileIOService().printData();
 		}
+	}
+	
+	public long countEntries(IOService fileIo) {
+		if (fileIo.equals(IOService.FILE_IO)) {
+			return new EmployeePayrollFileIOService().countEntries();
+		}
+		return 0;
+	}
+	
+	public List<EmployeePayrollData> readPayrollData(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO))
+			this.employeePayrollList = new EmployeePayrollFileIOService().readData();
+		return employeePayrollList;
 	}
 	
 	public static void main(String[] args) {
