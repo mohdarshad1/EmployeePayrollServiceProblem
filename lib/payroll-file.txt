@@ -1,0 +1,3 @@
+ID = 1, Name = Mohd Arshad, Salary = 350000.0
+ID = 2, Name = Arshad, Salary = 400000.0
+ID = 3, Name = Ars, Salary = 500000.0
